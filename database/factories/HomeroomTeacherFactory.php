@@ -23,8 +23,8 @@ class HomeroomTeacherFactory extends Factory
     public function definition(): array
     {
         return [
-            'teacher_id' => \App\Models\Teacher::factory(),
-            'student_class_id' => \App\Models\StudentClass::factory(),
+            // 'teacher_id' => \App\Models\Teacher::factory(),
+            // 'student_class_id' => \App\Models\StudentClass::factory(),
         ];
     }
 }

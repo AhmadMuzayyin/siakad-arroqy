@@ -18,34 +18,9 @@
                 </div>
 
                 <x-nav-dropdown title="Apps" align="right" width="48">
-                    @can('view-any', App\Models\HomeroomTeacher::class)
-                        <x-dropdown-link href="{{ route('homeroom-teachers.index') }}">
-                            Wali Kelas
-                        </x-dropdown-link>
-                    @endcan
-                    @can('view-any', App\Models\Raport::class)
-                        <x-dropdown-link href="{{ route('raports.index') }}">
-                            Raport
-                        </x-dropdown-link>
-                    @endcan
-                    @can('view-any', App\Models\Score::class)
-                        <x-dropdown-link href="{{ route('scores.index') }}">
-                            Nilai
-                        </x-dropdown-link>
-                    @endcan
-                    @can('view-any', App\Models\TimeTable::class)
-                        <x-dropdown-link href="{{ route('time-tables.index') }}">
-                            Jadwal
-                        </x-dropdown-link>
-                    @endcan
-                    @can('view-any', App\Models\Student::class)
-                        <x-dropdown-link href="{{ route('students.index') }}">
-                            Siswa
-                        </x-dropdown-link>
-                    @endcan
-                    @can('view-any', App\Models\Teacher::class)
-                        <x-dropdown-link href="{{ route('teachers.index') }}">
-                            Guru
+                    @can('view-any', App\Models\Semester::class)
+                        <x-dropdown-link href="{{ route('semesters.index') }}">
+                            Semester
                         </x-dropdown-link>
                     @endcan
                     @can('view-any', App\Models\StudentClass::class)
@@ -53,14 +28,19 @@
                             Kelas
                         </x-dropdown-link>
                     @endcan
-                    @can('view-any', App\Models\Semester::class)
-                        <x-dropdown-link href="{{ route('semesters.index') }}">
-                            Semester
+                    @can('view-any', App\Models\Teacher::class)
+                        <x-dropdown-link href="{{ route('teachers.index') }}">
+                            Guru
                         </x-dropdown-link>
                     @endcan
-                    @can('view-any', App\Models\User::class)
-                        <x-dropdown-link href="{{ route('users.index') }}">
-                            Pengguna
+                    @can('view-any', App\Models\Student::class)
+                        <x-dropdown-link href="{{ route('students.index') }}">
+                            Siswa
+                        </x-dropdown-link>
+                    @endcan
+                    @can('view-any', App\Models\HomeroomTeacher::class)
+                        <x-dropdown-link href="{{ route('homeroom-teachers.index') }}">
+                            Wali Kelas
                         </x-dropdown-link>
                     @endcan
                     @can('view-any', App\Models\Lesson::class)
@@ -68,20 +48,37 @@
                             Mata Pelajaran
                         </x-dropdown-link>
                     @endcan
+                    @can('view-any', App\Models\TimeTable::class)
+                        <x-dropdown-link href="{{ route('time-tables.index') }}">
+                            Jadwal
+                        </x-dropdown-link>
+                    @endcan
+                    @can('view-any', App\Models\Score::class)
+                        <x-dropdown-link href="{{ route('scores.index') }}">
+                            Nilai
+                        </x-dropdown-link>
+                    @endcan
+                    @can('view-any', App\Models\Raport::class)
+                        <x-dropdown-link href="{{ route('raports.index') }}">
+                            Raport
+                        </x-dropdown-link>
+                    @endcan
                 </x-nav-dropdown>
 
                 @if (Auth::user()->can('view-any', Spatie\Permission\Models\Role::class) ||
                         Auth::user()->can('view-any', Spatie\Permission\Models\Permission::class))
                     <x-nav-dropdown title="Access Management" align="right" width="48">
-
+                        @can('view-any', App\Models\User::class)
+                            <x-dropdown-link href="{{ route('users.index') }}">
+                                Users
+                            </x-dropdown-link>
+                        @endcan
                         @can('view-any', Spatie\Permission\Models\Role::class)
                             <x-dropdown-link href="{{ route('roles.index') }}">Roles</x-dropdown-link>
                         @endcan
-
                         @can('view-any', Spatie\Permission\Models\Permission::class)
                             <x-dropdown-link href="{{ route('permissions.index') }}">Permissions</x-dropdown-link>
                         @endcan
-
                     </x-nav-dropdown>
                 @endif
             </div>

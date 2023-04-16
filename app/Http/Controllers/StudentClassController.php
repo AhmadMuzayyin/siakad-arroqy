@@ -11,9 +11,6 @@ use App\Http\Requests\StudentClassUpdateRequest;
 
 class StudentClassController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index(Request $request): View
     {
         $this->authorize('view-any', StudentClass::class);
